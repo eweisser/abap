@@ -1,0 +1,18 @@
+@EndUserText.label : 'mock lips'
+@AbapCatalog.enhancement.category : #NOT_EXTENSIBLE
+@AbapCatalog.tableCategory : #TRANSPARENT
+@AbapCatalog.deliveryClass : #A
+@AbapCatalog.dataMaintenance : #RESTRICTED
+define table zeww_lips {
+
+  key vbeln  : abap.char(10) not null;
+  key posnr  : abap.numc(6) not null;
+  werks      : werks_d;
+  lgort      : lgort_d;
+  ps_psp_pnr : abap.numc(8);
+  vgbel      : vgbel;
+  vgpos      : vgpos;
+  pstyv      : abap.char(4);
+  matnr      : matnr;
+
+}

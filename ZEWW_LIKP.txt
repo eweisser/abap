@@ -1,0 +1,15 @@
+@EndUserText.label : 'mock likp'
+@AbapCatalog.enhancement.category : #NOT_EXTENSIBLE
+@AbapCatalog.tableCategory : #TRANSPARENT
+@AbapCatalog.deliveryClass : #A
+@AbapCatalog.dataMaintenance : #RESTRICTED
+define table zeww_likp {
+
+  key vbeln : abap.char(10) not null;
+  aenam     : aenam;
+  erdat     : erdat;
+  wadat_ist : abap.dats;
+  wbstk     : abap.char(1);
+  kunnr     : kunwe;
+
+}
