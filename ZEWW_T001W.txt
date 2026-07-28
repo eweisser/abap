@@ -1,0 +1,11 @@
+@EndUserText.label : 'mock t001w'
+@AbapCatalog.enhancement.category : #NOT_EXTENSIBLE
+@AbapCatalog.tableCategory : #TRANSPARENT
+@AbapCatalog.deliveryClass : #A
+@AbapCatalog.dataMaintenance : #RESTRICTED
+define table zeww_t001w {
+
+  key werks : werks_d not null;
+  name1     : abap.char(30);
+
+}
