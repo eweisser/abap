@@ -1,0 +1,11 @@
+@EndUserText.label : 'mock usr21'
+@AbapCatalog.enhancement.category : #NOT_EXTENSIBLE
+@AbapCatalog.tableCategory : #TRANSPARENT
+@AbapCatalog.deliveryClass : #A
+@AbapCatalog.dataMaintenance : #RESTRICTED
+define table zeww_usr21 {
+
+  key bname  : abap.char(12) not null;
+  persnumber : ad_persnum;
+
+}
