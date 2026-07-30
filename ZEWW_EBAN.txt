@@ -1,0 +1,15 @@
+@EndUserText.label : 'mock EBAN'
+@AbapCatalog.enhancement.category : #NOT_EXTENSIBLE
+@AbapCatalog.tableCategory : #TRANSPARENT
+@AbapCatalog.deliveryClass : #A
+@AbapCatalog.dataMaintenance : #RESTRICTED
+define table zeww_eban {
+
+  key banfn : banfn not null;
+  key bnfpo : bnfpo not null;
+  bsart     : bbsrt;
+  matnr     : matnr;
+  werks     : ewerk;
+  lgort     : lgort_d;
+
+}

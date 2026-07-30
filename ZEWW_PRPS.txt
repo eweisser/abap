@@ -1,0 +1,11 @@
+@EndUserText.label : 'mock prps'
+@AbapCatalog.enhancement.category : #NOT_EXTENSIBLE
+@AbapCatalog.tableCategory : #TRANSPARENT
+@AbapCatalog.deliveryClass : #A
+@AbapCatalog.dataMaintenance : #RESTRICTED
+define table zeww_prps {
+
+  key pspnr : abap.numc(8) not null;
+  posid     : abap.char(24);
+
+}
