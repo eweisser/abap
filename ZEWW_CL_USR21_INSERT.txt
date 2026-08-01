@@ -1,0 +1,48 @@
+CLASS zeww_cl_usr21_insert DEFINITION
+  PUBLIC
+  FINAL
+  CREATE PUBLIC .
+
+  PUBLIC SECTION.
+    INTERFACES if_oo_adt_classrun.
+  PROTECTED SECTION.
+  PRIVATE SECTION.
+ENDCLASS.
+
+
+
+CLASS zeww_cl_usr21_insert IMPLEMENTATION.
+  METHOD if_oo_adt_classrun~main.
+    DATA: it_pop TYPE STANDARD TABLE OF zeww_usr21.
+    it_pop = VALUE #(
+      (
+          bname = 'dickens01'
+*                   bname is char(12)
+          persnumber = '0000843211'
+*                   persnumber is char(10)
+      )
+
+      (
+          bname = 'austen11'
+          persnumber = '0000843212'
+      )
+
+      (
+          bname = 'wilde08'
+          persnumber = '0000843213'
+      )
+
+      (
+          bname = 'bronte03'
+          persnumber = '0000843214'
+      )
+
+      (
+          bname = 'melville03'
+          persnumber = '0000843215'
+      )
+
+      ).
+    INSERT zeww_usr21 FROM TABLE @it_pop.
+  ENDMETHOD.
+ENDCLASS.
