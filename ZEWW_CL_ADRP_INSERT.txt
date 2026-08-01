@@ -1,0 +1,60 @@
+CLASS zeww_cl_adrp_insert DEFINITION
+  PUBLIC
+  FINAL
+  CREATE PUBLIC .
+
+  PUBLIC SECTION.
+    INTERFACES if_oo_adt_classrun.
+  PROTECTED SECTION.
+  PRIVATE SECTION.
+ENDCLASS.
+
+
+
+CLASS zeww_cl_adrp_insert IMPLEMENTATION.
+  METHOD if_oo_adt_classrun~main.
+    DATA: it_pop TYPE STANDARD TABLE OF zeww_adrp.
+    it_pop = VALUE #(
+      (
+          persnumber = '0000843211'
+*                   persnumber is char(10)
+          date_from = '20260101'
+*                   date_from is dats(8)
+          nation = ' '
+*                   nation is char(1)
+          name_text = 'Charles Dickens'
+*                   name_text is char(80)
+      )
+
+      (
+          persnumber = '0000843212'
+          date_from = '20260101'
+          nation = ' '
+          name_text = 'Jane Austen'
+      )
+
+      (
+          persnumber = '0000843213'
+          date_from = '20260101'
+          nation = ' '
+          name_text = 'Oscar Wilde'
+      )
+
+      (
+          persnumber = '0000843214'
+          date_from = '20260101'
+          nation = ' '
+          name_text = 'Charlotte Bronte'
+      )
+
+      (
+          persnumber = '0000843215'
+          date_from = '20260101'
+          nation = ' '
+          name_text = 'Herman Melville'
+      )
+
+      ).
+    INSERT zeww_adrp FROM TABLE @it_pop.
+  ENDMETHOD.
+ENDCLASS.
