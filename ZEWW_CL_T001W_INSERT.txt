@@ -1,0 +1,48 @@
+CLASS zeww_cl_t001w_insert DEFINITION
+  PUBLIC
+  FINAL
+  CREATE PUBLIC .
+
+  PUBLIC SECTION.
+    INTERFACES if_oo_adt_classrun.
+  PROTECTED SECTION.
+  PRIVATE SECTION.
+ENDCLASS.
+
+
+
+CLASS zeww_cl_t001w_insert IMPLEMENTATION.
+  METHOD if_oo_adt_classrun~main.
+    DATA: it_pop TYPE STANDARD TABLE OF zeww_t001w.
+    it_pop = VALUE #(
+      (
+          werks = '1000'
+*                   werks is char(4)
+          name1 = 'Chicago Plant-Kinzie'
+*                   name1 is char(30)
+      )
+
+      (
+          werks = '1100'
+          name1 = 'Lima Plant-Callao'
+      )
+
+      (
+          werks = '1200'
+          name1 = 'Berlin Plant-Westhafen'
+      )
+
+      (
+          werks = '1300'
+          name1 = 'Lagos Plant-Ikeja'
+      )
+
+      (
+          werks = '1400'
+          name1 = 'Seoul Plant-Magok'
+      )
+
+      ).
+    INSERT zeww_t001w FROM TABLE @it_pop.
+  ENDMETHOD.
+ENDCLASS.
