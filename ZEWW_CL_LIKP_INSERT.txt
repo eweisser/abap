@@ -1,0 +1,72 @@
+CLASS zeww_cl_likp_insert DEFINITION
+  PUBLIC
+  FINAL
+  CREATE PUBLIC .
+
+  PUBLIC SECTION.
+    INTERFACES if_oo_adt_classrun.
+  PROTECTED SECTION.
+  PRIVATE SECTION.
+ENDCLASS.
+
+
+
+CLASS zeww_cl_likp_insert IMPLEMENTATION.
+    METHOD if_oo_adt_classrun~main.
+        DATA: it_pop TYPE STANDARD TABLE OF zeww_likp.
+              it_pop = VALUE #(
+                (
+                    vbeln = '0003200437'
+*                   vbeln is char(10)
+                    aenam = 'dickens01'
+*                   aenam is char(12)
+                    erdat = '20260214'
+*                   erdat is dats(8)
+                    wadat_ist = '20260214'
+*                   wadat_ist is dats(8)
+                    wbstk = 'C'
+*                   wbstk is char(1)
+                    kunnr = 'cust845443'
+*                   kunnr is char(10)
+                )
+                
+                (
+                    vbeln = '0003200438'
+                    aenam = 'austen11'
+                    erdat = '20260317'
+                    wadat_ist = '20260318'
+                    wbstk = 'C'
+                    kunnr = 'cust696613'
+                )
+                
+                (
+                    vbeln = '0003200439'
+                    aenam = 'wilde08'
+                    erdat = '20260401'
+                    wadat_ist = '20260403'
+                    wbstk = 'C'
+                    kunnr = 'cust499190'
+                )
+                
+                (
+                    vbeln = '0003200440'
+                    aenam = 'bronte03'
+                    erdat = '20260531'
+                    wadat_ist = '20260603'
+                    wbstk = 'B'
+                    kunnr = 'cust295441'
+                )
+                
+                (
+                    vbeln = '0003200441'
+                    aenam = 'melville03'
+                    erdat = '20260619'
+                    wadat_ist = '20260623'
+                    wbstk = 'A'
+                    kunnr = 'cust452239'
+                )                
+                
+                ).
+        INSERT zeww_likp FROM TABLE @it_pop.
+    ENDMETHOD.
+ENDCLASS.
