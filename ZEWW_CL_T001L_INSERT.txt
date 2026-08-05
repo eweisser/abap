@@ -1,0 +1,54 @@
+CLASS zeww_cl_t001l_insert DEFINITION
+  PUBLIC
+  FINAL
+  CREATE PUBLIC .
+
+  PUBLIC SECTION.
+    INTERFACES if_oo_adt_classrun.
+  PROTECTED SECTION.
+  PRIVATE SECTION.
+ENDCLASS.
+
+
+
+CLASS zeww_cl_t001l_insert IMPLEMENTATION.
+  METHOD if_oo_adt_classrun~main.
+    DATA: it_pop TYPE STANDARD TABLE OF zeww_t001l.
+    it_pop = VALUE #(
+      (
+          werks = '1000'
+*                   werks is char(4)
+          lgort = '0001'
+*                   lgort is char(4)
+          lgobe = 'Raw Materials'
+*                   lgobe is dats(16)
+      )
+
+      (
+          werks = '1100'
+          lgort = '0001'
+          lgobe = 'Finished Goods'
+      )
+
+      (
+          werks = '1200'
+          lgort = '0001'
+          lgobe = 'Raw Materials'
+      )
+
+      (
+          werks = '1300'
+          lgort = '0001'
+          lgobe = 'Finished Goods'
+      )
+
+      (
+          werks = '1400'
+          lgort = '0001'
+          lgobe = 'Raw Materials'
+      )
+
+      ).
+    INSERT zeww_t001l FROM TABLE @it_pop.
+  ENDMETHOD.
+ENDCLASS.
