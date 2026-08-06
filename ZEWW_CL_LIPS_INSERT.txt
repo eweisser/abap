@@ -1,0 +1,90 @@
+CLASS zeww_cl_lips_insert DEFINITION
+  PUBLIC
+  FINAL
+  CREATE PUBLIC .
+
+  PUBLIC SECTION.
+    INTERFACES if_oo_adt_classrun.
+  PROTECTED SECTION.
+  PRIVATE SECTION.
+ENDCLASS.
+
+
+
+CLASS zeww_cl_lips_insert IMPLEMENTATION.
+  METHOD if_oo_adt_classrun~main.
+    DATA: it_pop TYPE STANDARD TABLE OF zeww_lips.
+    it_pop = VALUE #(
+      (
+          vbeln = '0003200437'
+*                   vbeln is char(10)
+          posnr = '000010'
+*                   posnr is numc(6)
+          werks = '1000'
+*                   werks is char(4)
+          lgort = '0001'
+*                   lgort is char(4)
+          ps_psp_pnr = '00002815'
+*                   ps_psp_pnr is numc(8)
+          vgbel = '2529535149'
+*                   vgbel is char(10)
+          vgpos = '000010'
+*                   vgpos is numc(6)
+          pstyv = 'TAN'
+*                   pstyv is char(4)
+          matnr = '000000000QUA385EXP'
+*                   matnr is char(40)
+      )
+
+      (
+          vbeln = '0003200438'
+          posnr = '000030'
+          werks = '1100'
+          lgort = '0001'
+          ps_psp_pnr = '00000885'
+          vgbel = '2529508941'
+          vgpos = '000030'
+          pstyv = 'TAN'
+          matnr = '000000000OFF452EMB'
+      )
+
+      (
+          vbeln = '0003200439'
+          posnr = '000050'
+          werks = '1200'
+          lgort = '0001'
+          ps_psp_pnr = '00007558'
+          vgbel = '2529514293'
+          vgpos = '000050'
+          pstyv = 'TAN'
+          matnr = '000000000HOM694CAN'
+      )
+
+      (
+          vbeln = '0003200440'
+          posnr = '000010'
+          werks = '1300'
+          lgort = '0001'
+          ps_psp_pnr = '00001544'
+          vgbel = '2529545417'
+          vgpos = '000060'
+          pstyv = 'ELN'
+          matnr = '000000000BIR510APP'
+      )
+
+      (
+          vbeln = '0003200441'
+          posnr = '000030'
+          werks = '1400'
+          lgort = '0001'
+          ps_psp_pnr = '00001662'
+          vgbel = '2529535461'
+          vgpos = '000060'
+          pstyv = 'ELN'
+          matnr = '000000000CON658MOV'
+      )
+
+      ).
+    INSERT zeww_lips FROM TABLE @it_pop.
+  ENDMETHOD.
+ENDCLASS.
