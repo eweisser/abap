@@ -1,0 +1,48 @@
+CLASS zeww_cl_prps_insert DEFINITION
+  PUBLIC
+  FINAL
+  CREATE PUBLIC .
+
+  PUBLIC SECTION.
+    INTERFACES if_oo_adt_classrun.
+  PROTECTED SECTION.
+  PRIVATE SECTION.
+ENDCLASS.
+
+
+
+CLASS zeww_cl_prps_insert IMPLEMENTATION.
+  METHOD if_oo_adt_classrun~main.
+    DATA: it_pop TYPE STANDARD TABLE OF zeww_prps.
+    it_pop = VALUE #(
+      (
+          pspnr = '00002815'
+*                   pspnr is numc(8)
+          posid = 'wdarw-08352'
+*                   posid is char(24)
+      )
+
+      (
+          pspnr = '00000885'
+          posid = 'nmrhh-54202'
+      )
+
+      (
+          pspnr = '00007558'
+          posid = 'apjhf-82635'
+      )
+
+      (
+          pspnr = '00001544'
+          posid = 'nkswt-10693'
+      )
+
+      (
+          pspnr = '00001662'
+          posid = 'rpzjs-18098'
+      )
+
+      ).
+    INSERT zeww_prps FROM TABLE @it_pop.
+  ENDMETHOD.
+ENDCLASS.
