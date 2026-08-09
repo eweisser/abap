@@ -1,0 +1,29 @@
+@AbapCatalog.viewEnhancementCategory: [#NONE]
+@AccessControl.authorizationCheck: #NOT_REQUIRED
+@EndUserText.label: 'WRITE DESC LATER-interface view-headers'
+@Metadata.ignorePropagatedAnnotations: true
+@ObjectModel.usageType:{
+	serviceQuality: #X,
+	sizeCategory: #S,
+	dataClass: #MIXED
+}
+
+//----------*
+// Change History
+//----------*
+// It's good to keep track of this
+//----------*
+
+define root view entity ZEWW_BOL_I_HEADER
+	as select from ZEWW_LIKP as A
+	left outer join ZEWW_USR21 as _B on A.aenam = _B.bname
+	left outer join ZEWW_ADRP as _C on _C.persnumber = _B.persnumber
+{
+	key A.vbeln as Delivery,
+	A.erdat as DeliveryCreatedDate,
+	A.wadat_ist as ShippedDate,
+	A.wbstk as ShippingStatus,
+	A.aenam as ShippingPersonnelID,
+	_C.name_text as ShippingPersonnelName,
+	A.kunnr as ShipToParty
+}
