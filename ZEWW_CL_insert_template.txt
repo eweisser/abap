@@ -1,0 +1,48 @@
+CLASS zeww_cl_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx_insert DEFINITION
+  PUBLIC
+  FINAL
+  CREATE PUBLIC .
+
+  PUBLIC SECTION.
+    INTERFACES if_oo_adt_classrun.
+  PROTECTED SECTION.
+  PRIVATE SECTION.
+ENDCLASS.
+
+
+
+CLASS zeww_cl_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx_insert IMPLEMENTATION.
+  METHOD if_oo_adt_classrun~main.
+    DATA: it_pop TYPE STANDARD TABLE OF zeww_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.
+    it_pop = VALUE #(
+      (
+          field1 = 'xxxxxxxxxxxx'
+*                   field1 is char(10)
+          field2 = 'xxxxxxxxxxxx'
+*                   field2 is dats(8)
+      )
+
+      (
+          field1 = 'xxxxxxxxxxxx'
+          field2 = 'xxxxxxxxxxxx'
+      )
+
+      (
+          field1 = 'xxxxxxxxxxxx'
+          field2 = 'xxxxxxxxxxxx'
+      )
+
+      (
+          field1 = 'xxxxxxxxxxxx'
+          field2 = 'xxxxxxxxxxxx'
+      )
+
+      (
+          field1 = 'xxxxxxxxxxxx'
+          field2 = 'xxxxxxxxxxxx'
+      )
+
+      ).
+    INSERT zeww_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx FROM TABLE @it_pop.
+  ENDMETHOD.
+ENDCLASS.
