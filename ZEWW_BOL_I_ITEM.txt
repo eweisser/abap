@@ -1,0 +1,56 @@
+@AbapCatalog.viewEnhancementCategory: [#NONE]
+@AccessControl.authorizationCheck: #NOT_REQUIRED
+@EndUserText.label: 'WRITE DESC LATER-interface view-items'
+@Metadata.ignorePropagatedAnnotations: true
+@ObjectModel.usageType:{
+	serviceQuality: #X,
+	sizeCategory: #S,
+	dataClass: #MIXED
+}
+
+//----------*
+// Change History
+//----------*
+// It's good to keep track of this
+//----------*
+
+define root view entity ZEWW_BOL_I_ITEM
+	as select from ZEWW_LIPS
+	association [0..1] to ZEWW_T001L as _A on $projection.Plant = _A.werks
+		and $projection.StorageLocation = _A.lgort
+	association [0..1] to ZEWW_T001W as _B on $projection.Plant = _B.werks
+	association [0..1] to ZEWW_PRPS as _C on $projection.ps_psp_pnr = _C.pspnr
+{
+	key vbeln as Delivery,
+	key posnr as DeliveryItem,
+	werks as Plant,
+	_B.name1 as PlantName,
+	lgort as StorageLocation,
+	_A.lgobe as DescOfStorageLocation,
+	vgbel as SalesOrder,
+	vgpos as SalesOrderItemNumber,
+//	  cast (ps_psp_pnr as abap.numc( 8 )) as WBSElement,
+	ps_psp_pnr,
+	cast (ps_psp_pnr as abap.numc( 8 )) as BackEndWBS,
+//	  _C.posid as WBSElement,
+	cast (_C.posid as abap.char( 24 )) as WBSElement,
+	pstyv as DeliveryItemCategory,
+	matnr as MaterialNumber,
+	arktx as MaterialNumberDesc,
+	@Semantics.quantity.unitOfMeasure: 'Vrkme'
+	lfimg as DelQyOfNonBatchSplitItems,
+	@Semantics.quantity.unitOfMeasure: 'Meins'
+	kcmeng as DelQyOfBatchSplitItems,
+	vrkme as Vrkme,
+	meins as Meins,
+
+	@Semantics.quantity.unitOfMeasure: 'Meins'
+	case
+		when lfimg = 0 then kcmeng
+		else cast(lfimg as kcmeng)
+	end as ZDelQtyOfSplitItems,
+
+	_A,
+	_B,
+	_C
+}
