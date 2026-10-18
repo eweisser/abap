@@ -29,26 +29,11 @@ define root view entity ZEWW_BOL_I_ITEM
 	_A.lgobe as DescOfStorageLocation,
 	vgbel as SalesOrder,
 	vgpos as SalesOrderItemNumber,
-//	  cast (ps_psp_pnr as abap.numc( 8 )) as WBSElement,
 	ps_psp_pnr,
 	cast (ps_psp_pnr as abap.numc( 8 )) as BackEndWBS,
-//	  _C.posid as WBSElement,
 	cast (_C.posid as abap.char( 24 )) as WBSElement,
 	pstyv as DeliveryItemCategory,
 	matnr as MaterialNumber,
-	arktx as MaterialNumberDesc,
-	@Semantics.quantity.unitOfMeasure: 'Vrkme'
-	lfimg as DelQyOfNonBatchSplitItems,
-	@Semantics.quantity.unitOfMeasure: 'Meins'
-	kcmeng as DelQyOfBatchSplitItems,
-	vrkme as Vrkme,
-	meins as Meins,
-
-	@Semantics.quantity.unitOfMeasure: 'Meins'
-	case
-		when lfimg = 0 then kcmeng
-		else cast(lfimg as kcmeng)
-	end as ZDelQtyOfSplitItems,
 
 	_A,
 	_B,
